@@ -17,9 +17,14 @@ begin try -- arranca el try
 	insert into Detalle (IdPedido, IdProducto, CantidadPedida, UrlImagen, Nombre, PrecioActual)
 	values
 	(@idPedido,@idProducto,@CantidadPedida,@UrlImagen,@Nombre,@PrecioActual)
+
 	update Producto set StockActual = StockActual-@CantidadPedida  
+	--El update Es el unico que no dispara excepciones si no modifica datos.
 	where id= @idProducto
+	
 	IF @@ROWCOUNT  = 0
+	--Entra en juego el rowcount, que chequea cuantas filas se modificaron, si es 0, levanta el error. :)
+	
 	BEGIN RAISERROR('No se pudo guardar el detalle',16,1)
 	
 	END
