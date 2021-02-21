@@ -26,7 +26,7 @@ exec sp_InsertarUsuario 'Carlos','123','1','1'
 create procedure sp_InsertarUsuario(
 --tabla usuarios--
 @NombreUsuario varchar (100),
-@Contraseña varchar (15),
+@Contraseña varchar (200),
 @IdTipoUsuario tinyint,
 @Estado bit,
 --Tabla Datos Personales--

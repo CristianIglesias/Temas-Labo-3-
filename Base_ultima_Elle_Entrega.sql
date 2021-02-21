@@ -13,13 +13,12 @@ go
 
 create table Usuarios (
 Id bigint not null primary Key identity (1,1),
-NombreUsuario varchar(100) not Null,
-Contraseña varchar (15) not null,
+NombreUsuario varchar(200) not Null,
+Contraseña varchar (100) not null,
 IdTipoUsuario tinyint not null foreign key references TipoUsuario(Id),
 Estado bit not null
 )
 go
-
 
 
 create table Estados (

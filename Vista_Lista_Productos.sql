@@ -14,10 +14,15 @@
 	select COUNT(*) from Pedidos as p where dp.IdUsuario=p.IdUsuario
  ) as 'Cantidad Compras',
  (
- select AVG(P.importe) from Pedidos as p where dp.IdUsuario=p.IdUsuario
+ select isnull(AVG(P.importe),0) from Pedidos as p where dp.IdUsuario=p.IdUsuario 
  ) as 'Promedio Compras'
  from DatosPersonales as dp
  
  select 
  AVG(*) from pedidos as p where IdUsuario = @
  from
+
+
+ select * from usuarios
+
+ update Usuarios set IdTipoUsuario = 1 WHERE id = 17
